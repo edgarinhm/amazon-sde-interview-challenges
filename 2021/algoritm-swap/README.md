@@ -7,7 +7,7 @@ For the input array `arr` of size `n` do:
 
 * Try to find the smallest pair of indices:
 
-0 \leq i < j \leq n - 1
+0 < i < j < n - 1
 
 such that arr[i] > arr[j]. Here 'smallest' means usual alphabetical ordering of pairs, i.e. (i_1, j_1) < (i_2, j_2)
 if and only if i_1 < i_2 or (i_1 = j_1 and j_1 < j_2).
