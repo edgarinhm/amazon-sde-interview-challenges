@@ -48,7 +48,7 @@ function orderConversions() {
         return STATUS_SUCCESS;
     }
 
-    return deserializeOrder
+    return deserializeOrder;
 
 }
 
