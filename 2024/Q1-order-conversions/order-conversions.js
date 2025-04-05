@@ -18,11 +18,11 @@ function orderConversions() {
         const { STATUS_INSUFFICIENT_OUTPUT_BUFFER, STATUS_NULL_INPUT } = getStatus('', serializedData, JSON.stringify(orderBatch));
 
         if (dataLength !== serializedData.length) {
-            return STATUS_INSUFFICIENT_OUTPUT_BUFFER
+            return STATUS_INSUFFICIENT_OUTPUT_BUFFER;
         }
 
         if (parseInt(header, 16) !== parseInt(headerId, 16)) {
-            return STATUS_NULL_INPUT
+            return STATUS_NULL_INPUT;
         }
 
         orderBatch.orderCount = serializedData.slice(headerBytes + payloadLengthBytes, headerBytes + payloadLengthBytes + orderCountBytes).reduce((accumulartor, currentValue) => accumulartor + parseInt(currentValue, 16), 0);
@@ -31,7 +31,7 @@ function orderConversions() {
         const orderCount = Math.floor((dataLength - (headerBytes + payloadLengthBytes)) / orderBytes);
 
         if (orderCount > maxOrderCount) {
-            return STATUS_NULL_INPUT
+            return STATUS_NULL_INPUT;
         }
 
         for (let index = 0; index < orderCount; index++) {
