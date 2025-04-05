@@ -28,7 +28,7 @@ function orderConversions() {
         orderBatch.orderCount = serializedData.slice(headerBytes + payloadLengthBytes, headerBytes + payloadLengthBytes + orderCountBytes).reduce((accumulartor, currentValue) => accumulartor + parseInt(currentValue, 16), 0);
         orderBatch.batchId = serializedData.slice(headerBytes + payloadLengthBytes + orderCountBytes, headerBytes + payloadLengthBytes + orderCountBytes + batchIdBytes).reduce((accumulartor, currentValue) => accumulartor + parseInt(currentValue, 16), 0);
 
-        let orderCount = Math.floor((dataLength - (headerBytes + payloadLengthBytes)) / orderBytes);
+        const orderCount = Math.floor((dataLength - (headerBytes + payloadLengthBytes)) / orderBytes);
 
         for (let index = 0; index < orderCount; index++) {
             const order = new Order();
