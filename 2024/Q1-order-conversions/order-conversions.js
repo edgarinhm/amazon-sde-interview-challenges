@@ -31,7 +31,7 @@ function orderConversions() {
         const orderCount = Math.floor((dataLength - (headerBytes + payloadLengthBytes)) / orderBytes);
 
         if (orderCount > maxOrderCount) {
-            return STATUS_INSUFFICIENT_OUTPUT_BUFFER
+            return STATUS_NULL_INPUT
         }
 
         for (let index = 0; index < orderCount; index++) {
