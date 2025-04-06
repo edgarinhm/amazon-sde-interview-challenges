@@ -4,7 +4,7 @@ function NonAlignedSearch() {
         if (data.length < 1 || numBytes !== data.length) {
             return -2;
         }
-        const patternByteString = 0xFE6B2840.toString(2);
+        const bytePatternString = 0xFE6B2840.toString(2);
 
         let startingBitPosition = -1;
         let nonByteAlignedData = '';
@@ -17,12 +17,12 @@ function NonAlignedSearch() {
             const byte = (parseInt(data[index], 16)).toString(2);
             nonByteAlignedData += byte.padStart(8, '0');
 
-            if (nonByteAlignedData.length >= patternByteString.length) {
+            if (nonByteAlignedData.length >= bytePatternString.length) {
                 let byteDataLength = nonByteAlignedData.length;
-                while (byteDataLength >= patternByteString.length && startingBitPosition === -1) {
-                    const nonBytePattern = nonByteAlignedData.substring(byteDataLength - patternByteString.length, byteDataLength);
-                    if (nonBytePattern === patternByteString) {
-                        startingBitPosition = byteDataLength - patternByteString.length;
+                while (byteDataLength >= bytePatternString.length && startingBitPosition === -1) {
+                    const subBytePattern = nonByteAlignedData.substring(byteDataLength - bytePatternString.length, byteDataLength);
+                    if (subBytePattern === bytePatternString) {
+                        startingBitPosition = byteDataLength - bytePatternString.length;
                     }
                     byteDataLength -= 1;
                 }
