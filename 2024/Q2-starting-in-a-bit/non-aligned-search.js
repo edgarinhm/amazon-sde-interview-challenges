@@ -4,7 +4,8 @@ function NonAlignedSearch() {
         if (data.length < 1 || numBytes !== data.length) {
             return -2;
         }
-        const bytePatternString = 0xFE6B2840.toString(2);
+        const pattern = 0xFE6B2840;
+        const bytePatternString = pattern.toString(2);
 
         let startingBitPosition = -1;
         let nonByteAlignedData = '';
