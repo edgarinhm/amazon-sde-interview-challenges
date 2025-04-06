@@ -11,8 +11,12 @@ function NonAlignedSearch() {
 
 
         for (let index = 0; index < numBytes; index++) {
+            if (startingBitPosition !== -1) {
+                break;
+            }
             const byte = (parseInt(data[index], 16)).toString(2);
             nonByteAlignedData += byte.padStart(8, '0');
+
             if (nonByteAlignedData.length >= patternByteString.length) {
                 let byteDataLength = nonByteAlignedData.length;
                 while (byteDataLength >= patternByteString.length && startingBitPosition === -1) {
