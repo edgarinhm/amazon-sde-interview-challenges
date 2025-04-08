@@ -12,6 +12,14 @@ const Case3Data = `xxch
 5
 5`; // expect 10
 
+const Case4Data = `BCD
+5
+5`; // expect 10
+
+const Case5Data = `3
+5
+5`; // expect 10
+
 
 function processData(input) {
 
@@ -29,6 +37,8 @@ function TestCleaningMachineLearning() {
         { input: Case1Data, expected: 6 },
         { input: Case2Data, expected: 7 },
         { input: Case3Data, expected: 10 },
+        { input: Case4Data, expected: 'ERROR' },
+        { input: Case5Data, expected: 'ERROR' },
     ];
 
     testCases.forEach(({ input, expected }, index) => {

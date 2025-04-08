@@ -4,6 +4,10 @@ function CleaningMachineLearning() {
         let totalCost = 0;
         let singleChar = [];
 
+        if (dataset.match(/[A-Z 0-9]/g)) {
+            return 'ERROR';
+        }
+
         while (datasetStack.length > 0) {
             const char = datasetStack[0];
             const charMatch = datasetStack.filter((data) => data === char);
